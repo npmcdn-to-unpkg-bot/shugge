@@ -1,0 +1,47 @@
+<html ng-app="TimeWaste">
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="app/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="//npmcdn.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+    </head>
+    
+    
+    
+    <body>
+    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
+        <div class="container">
+            <div>
+                
+                <div ng-show="!loggedIn">
+                <input type="text" ng-model="login.email">
+                <input type="password" ng-model="login.password">
+                <button ng-click="logUserIn()">Login</button> <a ui-sref="signUp">Create An Account</a>
+                </div>
+                
+                <div ng-show="loggedIn">
+                    <a ui-sref="editProfile">Edit Profile</a>
+                    <a ng-click="logOut();">Logout</a>
+                </div>
+                
+            </div>       
+        </div>
+    </nav>
+    
+        <div ui-view></div>
+        
+    <script src="app/app.js"></script>
+        
+    <!-- Controllers -->
+    <script src="app/signup/signup-controller.js"></script>
+    <script src="app/navigation/navigation-controller.js"></script>
+    <script src="app/profile/edit-profile-controller.js"></script>
+    <script src="app/main/main-controller.js"></script>
+        
+    <!-- Modules -->
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+    </body>
+    
+</html>
